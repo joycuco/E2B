@@ -1,2 +1,2 @@
 # E2B
-eb backend
+e2b backend
