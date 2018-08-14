@@ -1,0 +1,90 @@
+package com.e2b.consulta;
+
+public class Receta {
+    private Long idReceta;
+    private String nombre;
+    private String ingredientes;
+    private String infoNutrimental;
+    private float verduras;
+    private float cernes;
+    private float aceites;
+    private float semillas;
+
+    public Receta() {
+    }
+
+    public Receta(Long idReceta, String nombre, String ingredientes, String infoNutrimental, float verduras, float cernes, float aceites, float semillas) {
+        this.idReceta = idReceta;
+        this.nombre = nombre;
+        this.ingredientes = ingredientes;
+        this.infoNutrimental = infoNutrimental;
+        this.verduras = verduras;
+        this.cernes = cernes;
+        this.aceites = aceites;
+        this.semillas = semillas;
+    }
+
+    public Long getIdReceta() {
+        return idReceta;
+    }
+
+    public void setIdReceta(Long idReceta) {
+        this.idReceta = idReceta;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(String ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public String getInfoNutrimental() {
+        return infoNutrimental;
+    }
+
+    public void setInfoNutrimental(String infoNutrimental) {
+        this.infoNutrimental = infoNutrimental;
+    }
+
+    public float getVerduras() {
+        return verduras;
+    }
+
+    public void setVerduras(float verduras) {
+        this.verduras = verduras;
+    }
+
+    public float getCernes() {
+        return cernes;
+    }
+
+    public void setCernes(float cernes) {
+        this.cernes = cernes;
+    }
+
+    public float getAceites() {
+        return aceites;
+    }
+
+    public void setAceites(float aceites) {
+        this.aceites = aceites;
+    }
+
+    public float getSemillas() {
+        return semillas;
+    }
+
+    public void setSemillas(float semillas) {
+        this.semillas = semillas;
+    }
+}
