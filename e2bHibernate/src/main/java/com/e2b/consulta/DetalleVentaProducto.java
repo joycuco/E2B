@@ -1,7 +1,14 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "detalle_venta_producto")
 public class DetalleVentaProducto {
 
+    @Id
+    @Column(name = "id_detalle_venta_producto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetalleVentaProducto;
     private Float descuento;
     private int cantidad;

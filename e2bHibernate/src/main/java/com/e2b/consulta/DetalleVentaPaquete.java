@@ -1,20 +1,38 @@
 package com.e2b.consulta;
 
-public class DetalleVentaPaquete {
+import javax.persistence.*;
+import java.io.Serializable;
 
+public class DetalleVentaPaquete implements Serializable {
+
+    @Id
+    @Column(name = "id_detalle_venta_paquete")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetalleVentaPaquete;
+
+    @Column(name = "descuento")
     private Float descuento;
+
+    @Column(name = "cantidad")
     private int cantidad;
+
+    @Column(name = "costo")
     private Float total;
 
+    @ManyToOne
+    @JoinColumn(name = "id_paquete")
     private Paquete paquete;
 
+    @ManyToOne
+    @JoinColumn(name = "id_venta")
     private Venta venta;
 
     public DetalleVentaPaquete() {
+        super();
     }
 
     public DetalleVentaPaquete(Long idDetalleVentaPaquete, Float descuento, int cantidad, Float total, Venta venta) {
+        super();
         this.idDetalleVentaPaquete = idDetalleVentaPaquete;
         this.descuento = descuento;
         this.cantidad = cantidad;

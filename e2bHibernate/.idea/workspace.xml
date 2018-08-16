@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ca1b9651-9130-43a6-905b-fcf3ff3c8e90" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/AntecedenteFamiliar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/AntecedenteFamiliar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Cita.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Cita.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Compra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Compra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consultorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consultorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Dieta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Dieta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Empleado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Empleado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Paciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Paciente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,7 +29,7 @@
       <file leaf-file-name="Consulta.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consulta.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
+            <state relative-caret-position="542">
               <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -101,15 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetalleVentaPaquete.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java">
+      <file leaf-file-name="DetalleVentaProducto.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-              <folding>
-                <element signature="e#625#626#0" expanded="true" />
-                <element signature="e#655#656#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -141,9 +130,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/LaboratorioConsulta.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Venta.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Servicio.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaServicio.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Paquete.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Receta.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/EjemploAlimento.java" />
@@ -157,6 +144,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Empleado.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consultorio.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consulta.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java" />
       </list>
     </option>
   </component>
@@ -177,8 +166,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="25" />
+    <option name="x" value="-118" />
+    <option name="y" value="83" />
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
@@ -350,8 +339,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="14" y="68" width="1346" height="688" extended-state="0" />
-    <editor active="true" />
+    <frame x="-118" y="83" width="1346" height="688" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -695,13 +683,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/EjemploAlimento.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -902,9 +883,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="16" selection-start-line="34" selection-start-column="16" selection-end-line="34" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#685#686#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#655#656#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/Consulta.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
+        <state relative-caret-position="542">
           <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -968,14 +963,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaPaquete.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/e2b/consulta/DetalleVentaProducto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
         </state>
       </provider>
     </entry>
