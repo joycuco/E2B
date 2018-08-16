@@ -1,16 +1,39 @@
 package com.e2b.consulta;
 
-public class AntecedenteFamiliar {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "antecedentes_familiares")
+
+public class AntecedenteFamiliar implements Serializable {
+
+    @Id
+    @Column(name = "id_antecedentes_familiares")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAntecedenteFamiliar;
+
+    @Column(name = "notas")
     private String notas;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
     private Paciente paciente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_familiar")
     private Familiar familiar;
+
+    @ManyToOne
+    @JoinColumn(name = "id_enfermedad")
     private Enfermedad enfermedad;
 
     public AntecedenteFamiliar() {
+        super();
     }
 
     public AntecedenteFamiliar(Long idAntecedenteFamiliar, String notas, Paciente paciente, Familiar familiar, Enfermedad enfermedad) {
+        super();
         this.idAntecedenteFamiliar = idAntecedenteFamiliar;
         this.notas = notas;
         this.paciente = paciente;

@@ -1,5 +1,7 @@
 package com.e2b.consulta;
 
+import java.util.Set;
+
 public class Dieta {
     private Long idDieta;
     private String tipo;

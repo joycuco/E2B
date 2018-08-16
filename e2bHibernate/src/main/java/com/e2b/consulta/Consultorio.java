@@ -1,22 +1,48 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
+@Entity
+@Table(name = "consultorio")
 public class Consultorio {
+    @Id
+    @Column(name = "id_consultorio")
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long idConsultorio;
+
+    @Column(name = "direccion")
     private String direccion;
+
+    @Column(name = "telefono")
     private String telefono;
+
+    @Column(name = "fb")
     private String fb;
+
+    @Column(name = "twitter")
     private String tw;
+
+    @Column(name = "estatus")
     private String estatus;
+
+    @Column(name = "fecha_apertura")
     private Date fechaApertura;
 
-    private Empleado empleado;
+    @ManyToOne
+    @JoinColumn(name = "consultorio")
+    private Empleado encargado;
+
+    @OneToMany(mappedBy = "id_empleado")
+    private Set<Empleado> empleados;
 
     public Consultorio() {
+        super();
     }
 
-    public Consultorio(Long idConsultorio, String direccion, String telefono, String fb, String tw, String estatus, Date fechaApertura, Empleado empleado) {
+    public Consultorio(Long idConsultorio, String direccion, String telefono, String fb, String tw, String estatus, Date fechaApertura, Empleado encargado) {
+        super();
         this.idConsultorio = idConsultorio;
         this.direccion = direccion;
         this.telefono = telefono;
@@ -24,7 +50,23 @@ public class Consultorio {
         this.tw = tw;
         this.estatus = estatus;
         this.fechaApertura = fechaApertura;
-        this.empleado = empleado;
+        this.encargado = encargado;
+    }
+
+    public Empleado getEncargado() {
+        return encargado;
+    }
+
+    public void setEncargado(Empleado encargado) {
+        this.encargado = encargado;
+    }
+
+    public Set<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Set<Empleado> empleados) {
+        this.empleados = empleados;
     }
 
     public Long getIdConsultorio() {
@@ -84,10 +126,10 @@ public class Consultorio {
     }
 
     public Empleado getEmpleado() {
-        return empleado;
+        return encargado;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpleado(Empleado encargado) {
+        this.encargado = encargado;
     }
 }

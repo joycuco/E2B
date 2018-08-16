@@ -12,12 +12,16 @@ public class Empleado {
     private String correo;
     private String puesto;
     private String estatus;
+
+    private Consultorio consultorio;
     private Set<Usuario> usuarios;
 
     public Empleado() {
+        super();
     }
 
     public Empleado(Long idEmpleado, String nombre, String direccion, String telCasa, String telCel, String correo, String puesto, String estatus, Set<Usuario> usuarios) {
+        super();
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;

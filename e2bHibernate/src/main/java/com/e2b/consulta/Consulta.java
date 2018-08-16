@@ -1,27 +1,66 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
-public class Consulta {
+@Entity
+@Table(name = "consulta")
+public class Consulta implements Serializable {
 
+    @Id
+    @Column(name = "id_consulta")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idConsulta;
+
+    @Column(name = "complexion")
     private String complexion;
+
+    @Column(name = "peso")
     private Float peso;
+
+    @Column(name = "estatura")
     private Float estatura;
+
+    @Column(name = "munieca")
     private Float munieca;
+
+    @Column(name = "cadera")
     private Float cadera;
+
+    @Column(name = "cintura")
     private Float cintura;
+
+    @Column(name = "imc")
     private Float imc;
+
+    @Column(name = "peso_ideal")
     private Float pesoIdeal;
 
+    @Column(name = "p_grasa")
+    private Float pGrasa;
+
+    @Column(name = "masa_magra")
+    private Float masaMagra;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
     private Paciente paciente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_dieta")
     private Dieta dieta;
+
+    @OneToMany(mappedBy = "consulta")
     private Set<LaboratorioConsulta> laboratoriosConsulta;
 
-    public Consulta() {
+
+    public Consulta(){
+        super();
     }
 
     public Consulta(Long idConsulta, String complexion, Float peso, Float estatura, Float munieca, Float cadera, Float cintura, Float imc, Float pesoIdeal, Paciente paciente, Dieta dieta, Set<LaboratorioConsulta> laboratoriosConsulta) {
+        super();
         this.idConsulta = idConsulta;
         this.complexion = complexion;
         this.peso = peso;
@@ -34,6 +73,22 @@ public class Consulta {
         this.paciente = paciente;
         this.dieta = dieta;
         this.laboratoriosConsulta = laboratoriosConsulta;
+    }
+
+    public Float getpGrasa() {
+        return pGrasa;
+    }
+
+    public void setpGrasa(Float pGrasa) {
+        this.pGrasa = pGrasa;
+    }
+
+    public Float getMasaMagra() {
+        return masaMagra;
+    }
+
+    public void setMasaMagra(Float masaMagra) {
+        this.masaMagra = masaMagra;
     }
 
     public Long getIdConsulta() {

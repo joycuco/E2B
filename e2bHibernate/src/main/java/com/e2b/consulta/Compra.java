@@ -1,15 +1,34 @@
 package com.e2b.consulta;
 
-public class Compra {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "compra")
+
+public class Compra implements Serializable {
+
+    @Id
+    @Column(name = "id_compra")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCompra;
+
+    @Column(name = "gasto")
     private Float gasto;
+
+    @Column(name = "tipo_pago")
     private String tipoPago;
+
+    @ManyToOne
+    @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
     public Compra() {
+        super();
     }
 
     public Compra(Long idCompra, Float gasto, String tipoPago, Empleado empleado) {
+        super();
         this.idCompra = idCompra;
         this.gasto = gasto;
         this.tipoPago = tipoPago;

@@ -1,17 +1,34 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Cita {
+@Entity
+@Table
+public class Cita implements Serializable {
+    @Id
+    @Column(name = "id_cita")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCita;
-    private Paciente paciente;
+
+    @Column(name = "fecha_cita")
     private Date fechaCita;
+
+    @ManyToOne
+    @JoinColumn(name = "id_paciente")
+    private Paciente paciente;
+
+    @ManyToOne
+    @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
     public Cita() {
+        super();
     }
 
     public Cita(Long idCita, Paciente paciente, Date fechaCita, Empleado empleado) {
+        super();
         this.idCita = idCita;
         this.paciente = paciente;
         this.fechaCita = fechaCita;

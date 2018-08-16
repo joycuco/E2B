@@ -1,29 +1,74 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-public class Paciente {
+@Entity
+@Table(name = "paciente")
+
+public class Paciente implements Serializable {
+    @Id
+    @Column(name = "id_paciente")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaciente;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "tel_casa")
     private String telCasa;
+
+    @Column(name = "tel_movil")
     private String telCel;
+
+    @Column(name = "fecha_ingreso")
     private Date fechaIngreso;
+
+    @Column(name = "enfermedades")
     private String enfermedades;
+
+    @Column(name = "cirugias")
     private String cirugias;
+
+    @Column(name = "alimentos_no_gustan")
     private String alimentosNoGustan;
+
+    @Column(name = "alergia_alimentos")
     private String alergiaAlimentos;
 
 
+    @Column(name = "alergia_medicamentos")
+    private String alergiaMedicamentos;
+
+    @OneToMany(mappedBy = "paciente")//add this to all One to Many
     private Set<AntecedenteFamiliar> antecedentes;
+
+    @OneToMany
     private Set<Cita> citas;
-    private  Usuario usuario;
+
+    @OneToMany
     private Set<Consulta> consultas;
 
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private  Usuario usuario;
+
     public Paciente() {
+        super();
+    }
+
+    public String getAlergiaMedicamentos() {
+        return alergiaMedicamentos;
+    }
+
+    public void setAlergiaMedicamentos(String alergiaMedicamentos) {
+        this.alergiaMedicamentos = alergiaMedicamentos;
     }
 
     public Paciente(Long idPaciente, String nombre, String telCasa, String telCel, Date fechaIngreso, String enfermedades, String cirugias, String alimentosNoGustan, String alergiaAlimentos, Set<AntecedenteFamiliar> antecedentes, Set<Cita> citas, Usuario usuario, Set<Consulta> consultas) {
+        super();
         this.idPaciente = idPaciente;
         this.nombre = nombre;
         this.telCasa = telCasa;
