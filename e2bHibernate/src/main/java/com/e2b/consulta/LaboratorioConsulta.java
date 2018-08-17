@@ -1,19 +1,35 @@
 package com.e2b.consulta;
 
+@Entity
+@Table(name = "laboratorio_consulta")
 public class LaboratorioConsulta {
 
+	@Id
+	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idLaboratorioConsulta;
-    private Laboratorio laboratorio;
+	
+	@Column(name = "resultados")
     private String resultados;
+	
+	@Column(name = "notas")
     private String notas;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "id_laboratorio")
+    private Laboratorio laboratorio;
+	
+	@ManyToOne
+	@JoinColumn(name = id_consulta)
     private Consulta consulta;
 
     public LaboratorioConsulta() {
+		super();
     }
 
     public LaboratorioConsulta(Long idLaboratorioConsulta, Laboratorio laboratorio, String resultados, String notas, Consulta consulta) {
-        this.idLaboratorioConsulta = idLaboratorioConsulta;
+        super();
+		this.idLaboratorioConsulta = idLaboratorioConsulta;
         this.laboratorio = laboratorio;
         this.resultados = resultados;
         this.notas = notas;

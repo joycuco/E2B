@@ -2,6 +2,7 @@ package com.e2b.consulta;
 
 import java.util.Set;
 
+@Entity
 public class Paquete {
     private Long idPaquete;
     private String nombre;

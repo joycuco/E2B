@@ -1,15 +1,27 @@
 package com.e2b.consulta;
 
-public class Familiar {
+@Entity
+@Table(name = "familiar")
+public class Familiar implements Serializable{
 
+	@Id
+	@Column(name = "id_familiar")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFamiliar;
+	
+	@Column(name = "parentesco")
     private String parentesco;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_antecedentes_familiares")
     private AntecedenteFamiliar antecedenteFamiliar;
 
     public Familiar() {
+		super();
     }
 
     public Familiar(Long idFamiliar, String parentesco) {
+		super();
         this.idFamiliar = idFamiliar;
         this.parentesco = parentesco;
     }

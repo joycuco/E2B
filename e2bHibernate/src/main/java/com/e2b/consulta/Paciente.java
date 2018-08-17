@@ -45,10 +45,10 @@ public class Paciente implements Serializable {
     @OneToMany(mappedBy = "paciente")//add this to all One to Many
     private Set<AntecedenteFamiliar> antecedentes;
 
-    @OneToMany
+    @OneToMany(mappedBy = "paciente")
     private Set<Cita> citas;
 
-    @OneToMany
+    @OneToMany(mappedBy = "paciente")
     private Set<Consulta> consultas;
 
     @ManyToOne
@@ -57,14 +57,6 @@ public class Paciente implements Serializable {
 
     public Paciente() {
         super();
-    }
-
-    public String getAlergiaMedicamentos() {
-        return alergiaMedicamentos;
-    }
-
-    public void setAlergiaMedicamentos(String alergiaMedicamentos) {
-        this.alergiaMedicamentos = alergiaMedicamentos;
     }
 
     public Paciente(Long idPaciente, String nombre, String telCasa, String telCel, Date fechaIngreso, String enfermedades, String cirugias, String alimentosNoGustan, String alergiaAlimentos, Set<AntecedenteFamiliar> antecedentes, Set<Cita> citas, Usuario usuario, Set<Consulta> consultas) {
@@ -82,6 +74,15 @@ public class Paciente implements Serializable {
         this.citas = citas;
         this.usuario = usuario;
         this.consultas = consultas;
+    }
+	
+	
+    public String getAlergiaMedicamentos() {
+        return alergiaMedicamentos;
+    }
+
+    public void setAlergiaMedicamentos(String alergiaMedicamentos) {
+        this.alergiaMedicamentos = alergiaMedicamentos;
     }
 
     public Long getIdPaciente() {
