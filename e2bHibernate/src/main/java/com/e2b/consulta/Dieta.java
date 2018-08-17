@@ -1,14 +1,32 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
-
-public class Dieta {
+@Entity
+@Table(name = "dieta")
+public class Dieta implements Serializable {
+    @Id
+    @Column(name = "id_dieta")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDieta;
+
+    @Column(name = "tipo")
     private String tipo;
+
+    @Column(name = "k_cals")
     private int kc;
+
+    @Column(name = "hs_c")
     private int hc;
+
+    @Column(name = "proteinas")
     private int proteinas;
+
+    @Column(name = "lipidos")
     private int lipidos;
+
+    @OneToMany(mappedBy = "dieta")
     private Set<EjemploAlimento> ejemplosAlimentos;
 
     public Dieta() {

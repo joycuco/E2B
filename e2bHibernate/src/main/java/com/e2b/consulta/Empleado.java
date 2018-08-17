@@ -1,19 +1,44 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
-public class Empleado {
+@Entity
+@Table(name = "Empleado")
+public class Empleado implements Serializable {
 
+    @Id
+    @Column(name = "id_empleado")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmpleado;
+
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "direccion")
     private String direccion;
+
+    @Column(name = "tel_casa")
     private String telCasa;
+
+    @Column(name = "tel_movil")
     private String telCel;
+
+    @Column(name = "correo")
     private String correo;
+
+    @Column(name = "puesto")
     private String puesto;
+
+    @Column(name = "estatus")
     private String estatus;
 
+    @ManyToOne
+    @JoinColumn(name = "id_consultorio")
     private Consultorio consultorio;
+
+    @ManyToMany(mappedBy = "empleados")
     private Set<Usuario> usuarios;
 
     public Empleado() {

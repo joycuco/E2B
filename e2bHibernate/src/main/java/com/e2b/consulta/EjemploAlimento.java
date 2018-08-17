@@ -1,20 +1,43 @@
 package com.e2b.consulta;
 
+import org.hibernate.annotations.ManyToAny;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 
-public class EjemploAlimento {
-    private Long ejemploAlimento;
-    private Dieta dieta;
-    private Receta receta;
+@Entity
+@Table(name = "ejemplo_alimento")
+public class EjemploAlimento implements Serializable {
+
+    @Id
+    @Column(name = "id_ejemplo_alimento")
+    private Long idEjemploAlimento;
+
+    @Column(name = "tipo_alimento")
     private String tipo;
+
+    @Column(name = "hora")
     private Time hora;
+
+    @Column(name = "notas")
     private String notas;
 
+    @ManyToOne
+    @JoinColumn(name = "id_dieta")
+    private Dieta dieta;
+
+    @ManyToOne
+    @JoinColumn(name = "id_receta")
+    private Receta receta;
+
     public EjemploAlimento() {
+        super();
     }
 
-    public EjemploAlimento(Long ejemploAlimento, Dieta dieta, Receta receta, String tipo, Time hora, String notas) {
-        this.ejemploAlimento = ejemploAlimento;
+    public EjemploAlimento(Long idEjemploAlimento, Dieta dieta, Receta receta, String tipo, Time hora, String notas) {
+        super();
+        this.idEjemploAlimento = idEjemploAlimento;
         this.dieta = dieta;
         this.receta = receta;
         this.tipo = tipo;
@@ -23,11 +46,11 @@ public class EjemploAlimento {
     }
 
     public Long getEjemploAlimento() {
-        return ejemploAlimento;
+        return idEjemploAlimento;
     }
 
-    public void setEjemploAlimento(Long ejemploAlimento) {
-        this.ejemploAlimento = ejemploAlimento;
+    public void setEjemploAlimento(Long idEjemploAlimento) {
+        this.idEjemploAlimento = idEjemploAlimento;
     }
 
     public Dieta getDieta() {

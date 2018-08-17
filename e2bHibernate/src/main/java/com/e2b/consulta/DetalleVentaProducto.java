@@ -1,26 +1,40 @@
 package com.e2b.consulta;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "detalle_venta_producto")
-public class DetalleVentaProducto {
+public class DetalleVentaProducto implements Serializable {
 
     @Id
     @Column(name = "id_detalle_venta_producto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idDetalleVentaProducto;
+
+    @Column(name = "descuento")
     private Float descuento;
+
+    @Column(name = "cantidad")
     private int cantidad;
+
+    @Column(name = "costo")
     private Float total;
 
+    @ManyToOne
+    @JoinColumn(name = "id_venta")
     private Venta venta;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
     private Producto producto;
 
     public DetalleVentaProducto() {
+        super();
     }
 
     public DetalleVentaProducto(Long idDetalleVentaProducto, Float descuento, int cantidad, Float total, Venta venta, Producto producto) {
+        super();
         this.idDetalleVentaProducto = idDetalleVentaProducto;
         this.descuento = descuento;
         this.cantidad = cantidad;

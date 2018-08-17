@@ -4,6 +4,7 @@ public class Familiar {
 
     private Long idFamiliar;
     private String parentesco;
+    private AntecedenteFamiliar antecedenteFamiliar;
 
     public Familiar() {
     }

@@ -1,15 +1,31 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "enfermedad")
 public class Enfermedad {
+    @Id
+    @Column(name = "id_enfermedad")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEnfermedad;
+
+    @Column(name = "nombre")
     private String nombre;
 
+    @ManyToOne
+    @JoinColumn(name = "id_antecedentes_familiares")
+    private AntecedenteFamiliar antecedenteFamiliar;
+
     public Enfermedad() {
+        super();
     }
 
-    public Enfermedad(Long idEnfermedad, String nombre) {
+    public Enfermedad(Long idEnfermedad, String nombre, AntecedenteFamiliar antecedenteFamiliar) {
+        super();
         this.idEnfermedad = idEnfermedad;
         this.nombre = nombre;
+        this.antecedenteFamiliar = antecedenteFamiliar;
     }
 
     public Long getIdEnfermedad() {

@@ -1,10 +1,14 @@
 package com.e2b.consulta;
 
+import java.util.Set;
+
 public class Usuario {
     private Long idUsuario;
     private String usuario;
     private String password;
     private PermisoRol permisoRol;
+
+    private Set<Empleado> empleados;
 
     public Usuario() {
     }
@@ -18,6 +22,14 @@ public class Usuario {
 
     public Long getIdUsuario() {
         return idUsuario;
+    }
+
+    public Set<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(Set<Empleado> empleados) {
+        this.empleados = empleados;
     }
 
     public void setIdUsuario(Long idUsuario) {
