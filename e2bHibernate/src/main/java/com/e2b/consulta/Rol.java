@@ -1,13 +1,23 @@
 package com.e2b.consulta;
 
-public class Rol {
+@Entity
+@Table(name = "rol")
+public class Rol implements Serializable{
+	
+	@Id
+	@Column(name = "id_rol")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRol;
+	
+	@Column(name = "nombre")
     private String nombre;
 
     public Rol() {
+		super();
     }
 
     public Rol(Long idRol, String nombre) {
+		super();
         this.idRol = idRol;
         this.nombre = nombre;
     }

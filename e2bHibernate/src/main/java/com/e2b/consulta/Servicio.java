@@ -1,14 +1,30 @@
 package com.e2b.consulta;
 
-public class Servicio{
+@Entity
+@Table(name = "servicio")
+public class Servicio implements Serializable{
+	
+	@Id
+	@Column(name = "id_servicio")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idServicio;
+	
+	@Column(name = "nombre")
     private String nombre;
+	
+	@Column(name = "precio")
     private Float precio;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_servicio")
+	private Paquete paquete;
 
     public Servicio() {
+		super();
     }
 
     public Servicio(Long idServicio, String nombre, Float precio) {
+		super();
         this.idServicio = idServicio;
         this.nombre = nombre;
         this.precio = precio;

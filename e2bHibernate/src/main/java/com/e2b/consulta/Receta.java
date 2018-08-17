@@ -1,20 +1,42 @@
 package com.e2b.consulta;
 
-public class Receta {
+@Entity
+@Table(name = "receta")
+public class Receta implements Serializable{
+	
+	@Id
+	@Column(name = "id_receta")
+	@GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long idReceta;
+	
+	@Column(name = "nombre")
     private String nombre;
+	
+	@Column(name = "ingredientes")
     private String ingredientes;
+	
+	@Column(name = "info_nutrimental")
     private String infoNutrimental;
+	
+	@Column(name = "verduras")
     private float verduras;
+	
+	@Column(name = "carnes")
     private float cernes;
+	
+	@Column(name = "aceites")
     private float aceites;
+	
+	@Column(name = "semillas")
     private float semillas;
 
     public Receta() {
+		super();
     }
 
     public Receta(Long idReceta, String nombre, String ingredientes, String infoNutrimental, float verduras, float cernes, float aceites, float semillas) {
-        this.idReceta = idReceta;
+        super();
+		this.idReceta = idReceta;
         this.nombre = nombre;
         this.ingredientes = ingredientes;
         this.infoNutrimental = infoNutrimental;

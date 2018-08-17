@@ -34,6 +34,10 @@ public class Empleado implements Serializable {
     @Column(name = "estatus")
     private String estatus;
 
+	@ManyToOne(mappedBy = "empleado")
+	private Set<Venta> ventas;
+	
+	
     @ManyToOne
     @JoinColumn(name = "id_consultorio")
     private Consultorio consultorio;

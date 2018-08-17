@@ -54,6 +54,9 @@ public class Paciente implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private  Usuario usuario;
+	
+	@ManyToOne(mappedBy = "paciente")
+	private Set<Venta> ventas;
 
     public Paciente() {
         super();

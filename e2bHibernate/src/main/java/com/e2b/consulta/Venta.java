@@ -3,14 +3,33 @@ package com.e2b.consulta;
 import java.util.Date;
 import java.util.Set;
 
-public class Venta {
+@Entity
+@Table(name = "venta")
+public class Venta implements Serializable{
+	
+	@Id
+	@Column(name = "id_venta")
+	@GeneratedValues(strategy = GenerationType.IDENTITY)
     private Long idVenta;
+	
+	@Column(name = "total")
     private Double total;
+	
+	@Column(name = "tipo_pago")
     private String tipoPago;
+	
+	@Column(name = "fecha_venta")
     private Date fechaVenta;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_paciente")
     private Paciente paciente;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_empleado")
     private  Empleado empleado;
 
+	@OneToMany
     private Set<DetalleVentaProducto> productos;
     private Set<DetalleVentaServicio> servicios;
     private Set<DetalleVentaPaquete> paquetes;

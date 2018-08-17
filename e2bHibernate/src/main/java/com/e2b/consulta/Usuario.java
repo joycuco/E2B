@@ -2,19 +2,35 @@ package com.e2b.consulta;
 
 import java.util.Set;
 
-public class Usuario {
+@Entity
+@Table(name = "usuario")
+public class Usuario implements Serializable{
+	
+	@Id
+	@Column(name = "id_usuario")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
+	
+	@Column(name = "usuario")
     private String usuario;
+	
+	@Column(name = "password")
     private String password;
+	
+	@ManyToOne
+	@JoinColumn(name = "id_permiso_rol")
     private PermisoRol permisoRol;
 
+	@OneToMany(mappedBy = "usuario")
     private Set<Empleado> empleados;
 
     public Usuario() {
+		super();
     }
 
     public Usuario(Long idUsuario, String usuario, String password, PermisoRol permisoRol) {
-        this.idUsuario = idUsuario;
+        super();
+		this.idUsuario = idUsuario;
         this.usuario = usuario;
         this.password = password;
         this.permisoRol = permisoRol;

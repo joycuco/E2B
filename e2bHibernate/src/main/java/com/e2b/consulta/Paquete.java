@@ -3,11 +3,24 @@ package com.e2b.consulta;
 import java.util.Set;
 
 @Entity
+@Table(name = "paquete")
 public class Paquete {
+	
+	@Id
+	@Column(name = "id_paquete")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPaquete;
+	
+	@Column(name = "nombre")
     private String nombre;
+	
+	@Column(name = "precio")
     private Float precio;
+	
+	@OneToMany(mappedBy = "paquete")
     private Set<Producto> productos;
+	
+	@OneToMany(mappedBy = "paquete")
     private Set<Servicio> servicios;
 
     public Paquete() {
