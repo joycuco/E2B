@@ -34,7 +34,7 @@ public class Empleado implements Serializable {
     @Column(name = "estatus")
     private String estatus;
 
-	@ManyToOne(mappedBy = "empleado")
+	@OneToMany(mappedBy = "id_venta")
 	private Set<Venta> ventas;
 	
 	

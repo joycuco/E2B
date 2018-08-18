@@ -1,4 +1,5 @@
 package com.e2b.consulta;
+import javax.persistence.*;
 
 import java.util.Set;
 

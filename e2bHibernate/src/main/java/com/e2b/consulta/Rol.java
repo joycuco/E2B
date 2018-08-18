@@ -1,4 +1,7 @@
 package com.e2b.consulta;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "rol")
@@ -12,14 +15,18 @@ public class Rol implements Serializable{
 	@Column(name = "nombre")
     private String nombre;
 
+	@OneToMany(mappedBy = "rol")
+	private Set<PermisoRol> permisoRol;
+
     public Rol() {
 		super();
     }
 
-    public Rol(Long idRol, String nombre) {
-		super();
+    public Rol(Long idRol, String nombre, Set<PermisoRol> permisoRol) {
+        super();
         this.idRol = idRol;
         this.nombre = nombre;
+        this.permisoRol = permisoRol;
     }
 
     public Long getIdRol() {
@@ -36,5 +43,13 @@ public class Rol implements Serializable{
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public Set<PermisoRol> getPermisoRol() {
+        return permisoRol;
+    }
+
+    public void setPermisoRol(Set<PermisoRol> permisoRol) {
+        this.permisoRol = permisoRol;
     }
 }

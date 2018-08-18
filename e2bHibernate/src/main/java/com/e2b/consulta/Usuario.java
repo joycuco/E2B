@@ -1,6 +1,9 @@
 package com.e2b.consulta;
 
 import java.util.Set;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "usuario")

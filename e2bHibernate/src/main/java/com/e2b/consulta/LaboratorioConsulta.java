@@ -1,4 +1,6 @@
 package com.e2b.consulta;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "laboratorio_consulta")
@@ -20,7 +22,7 @@ public class LaboratorioConsulta {
     private Laboratorio laboratorio;
 	
 	@ManyToOne
-	@JoinColumn(name = id_consulta)
+	@JoinColumn(name = "id_consulta")
     private Consulta consulta;
 
     public LaboratorioConsulta() {

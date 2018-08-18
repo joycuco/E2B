@@ -1,5 +1,8 @@
 package com.e2b.consulta;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 @Entity
 @Table(name = "laboratorio")
 public class Laboratorio implements Serializable{

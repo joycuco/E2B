@@ -1,7 +1,5 @@
 package com.e2b.consulta;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Time;

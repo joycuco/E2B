@@ -3,6 +3,8 @@ package com.e2b.consulta;
 import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "detalle_venta_paquete")
 public class DetalleVentaPaquete implements Serializable {
 
     @Id

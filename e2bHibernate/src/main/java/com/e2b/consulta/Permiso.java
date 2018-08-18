@@ -1,4 +1,6 @@
 package com.e2b.consulta;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "permiso")
@@ -6,27 +8,31 @@ public class Permiso implements Serializable{
 	@Id
 	@Column(name = "id_permiso")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPersmiso;
+    private Long idPermiso;
 	
 	@Column(name = "nombre")
     private String nombre;
+
+	@ManyToOne
+    @JoinColumn(name = "id_permiso_rol")
+	private PermisoRol permisoRol;
 
     public Permiso() {
 		super();
     }
 
-    public Permiso(Long idPersmiso, String nombre) {
-		super();
-        this.idPersmiso = idPersmiso;
+    public Permiso(Long idPermiso, String nombre, PermisoRol permisoRol) {
+        this.idPermiso = idPermiso;
         this.nombre = nombre;
+        this.permisoRol = permisoRol;
     }
 
-    public Long getIdPersmiso() {
-        return idPersmiso;
+    public Long getIdPermiso() {
+        return idPermiso;
     }
 
-    public void setIdPersmiso(Long idPersmiso) {
-        this.idPersmiso = idPersmiso;
+    public void setIdPermiso(Long idPermiso) {
+        this.idPermiso = idPermiso;
     }
 
     public String getNombre() {
@@ -35,5 +41,13 @@ public class Permiso implements Serializable{
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public PermisoRol getPermisoRol() {
+        return permisoRol;
+    }
+
+    public void setPermisoRol(PermisoRol permisoRol) {
+        this.permisoRol = permisoRol;
     }
 }

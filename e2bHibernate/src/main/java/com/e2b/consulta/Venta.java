@@ -2,6 +2,9 @@ package com.e2b.consulta;
 
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "venta")
@@ -9,7 +12,7 @@ public class Venta implements Serializable{
 	
 	@Id
 	@Column(name = "id_venta")
-	@GeneratedValues(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idVenta;
 	
 	@Column(name = "total")

@@ -21,23 +21,24 @@ public class AntecedenteFamiliar implements Serializable {
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
-    @OneToMany(mappedBy = "antecedenteFamiliar")
-    private Set<Familiar> familiares;
+    @OneToOne(mappedBy = "id_familiar")
+    private Familiar familiar;
 
 
-    @OneToMany(mappedBy = "antecedenteFamiliar")
-    private Set<Enfermedad> enfermedades;
+    @OneToOne(mappedBy = "id_enfermedad")
+    private Enfermedad enfermedad;
 
     public AntecedenteFamiliar() {
         super();
     }
 
-    public AntecedenteFamiliar(Long idAntecedenteFamiliar, String notas, Paciente paciente, Set<Familiar> familiares, Set<Enfermedad> enfermedades) {
+    public AntecedenteFamiliar(Long idAntecedenteFamiliar, String notas, Paciente paciente, Familiar familiar, Enfermedad enfermedad) {
+        super();
         this.idAntecedenteFamiliar = idAntecedenteFamiliar;
         this.notas = notas;
         this.paciente = paciente;
-        this.familiares = familiares;
-        this.enfermedades = enfermedades;
+        this.familiar = familiar;
+        this.enfermedad = enfermedad;
     }
 
     public Long getIdAntecedenteFamiliar() {
@@ -64,19 +65,19 @@ public class AntecedenteFamiliar implements Serializable {
         this.paciente = paciente;
     }
 
-    public Set<Familiar> getFamiliares() {
-        return familiares;
+    public Familiar getFamiliar() {
+        return familiar;
     }
 
-    public void setFamiliares(Set<Familiar> familiares) {
-        this.familiares = familiares;
+    public void setFamiliar(Familiar familiar) {
+        this.familiar = familiar;
     }
 
-    public Set<Enfermedad> getEnfermedades() {
-        return enfermedades;
+    public Enfermedad getEnfermedad() {
+        return enfermedad;
     }
 
-    public void setEnfermedades(Set<Enfermedad> enfermedades) {
-        this.enfermedades = enfermedades;
+    public void setEnfermedad(Enfermedad enfermedad) {
+        this.enfermedad = enfermedad;
     }
 }

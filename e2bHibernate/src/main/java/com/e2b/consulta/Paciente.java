@@ -55,7 +55,8 @@ public class Paciente implements Serializable {
     @JoinColumn(name = "id_usuario")
     private  Usuario usuario;
 	
-	@ManyToOne(mappedBy = "paciente")
+	@OneToMany
+    @JoinColumn(name ="id_venta")
 	private Set<Venta> ventas;
 
     public Paciente() {
