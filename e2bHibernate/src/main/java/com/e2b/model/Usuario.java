@@ -1,9 +1,8 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import java.util.Set;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "usuario")
@@ -24,7 +23,14 @@ public class Usuario implements Serializable{
 	@JoinColumn(name = "id_permiso_rol")
     private PermisoRol permisoRol;
 
-	@OneToMany(mappedBy = "usuario")
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "usuario_empleado",
+            joinColumns = @JoinColumn(name = "id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_empleado")
+    )
     private Set<Empleado> empleados;
 
     public Usuario() {

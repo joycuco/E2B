@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,9 +14,9 @@ public class Familiar implements Serializable{
 	
 	@Column(name = "parentesco")
     private String parentesco;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_antecedentes_familiares")
+
+    @OneToOne
+    @JoinColumn(name = "id_antecedentes_familiares")
     private AntecedenteFamiliar antecedenteFamiliar;
 
     public Familiar() {

@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -34,15 +34,26 @@ public class Empleado implements Serializable {
     @Column(name = "estatus")
     private String estatus;
 
-	@OneToMany(mappedBy = "id_venta")
+	@OneToMany(mappedBy = "empleado")
 	private Set<Venta> ventas;
 	
-	
+	//para el encargado
     @ManyToOne
     @JoinColumn(name = "id_consultorio")
     private Consultorio consultorio;
 
-    @ManyToMany(mappedBy = "empleados")
+    //los empleados del consultorio
+   // @OneToMany(mappedBy = "encargado")
+    //private Set<Consultorio> consultorios;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "usuario_empleado",
+            joinColumns = @JoinColumn(name = "id_empleado"),
+            inverseJoinColumns = @JoinColumn(name = "id_usuario")
+    )
     private Set<Usuario> usuarios;
 
     public Empleado() {

@@ -1,6 +1,5 @@
-package com.e2b.consulta;
+package com.e2b.model;
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "laboratorio_consulta")

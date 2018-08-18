@@ -1,10 +1,9 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "venta")
@@ -32,24 +31,24 @@ public class Venta implements Serializable{
 	@JoinColumn(name = "id_empleado")
     private  Empleado empleado;
 
-	@OneToMany
+	@OneToMany(mappedBy = "venta")
     private Set<DetalleVentaProducto> productos;
+
+    @OneToMany(mappedBy = "venta")
     private Set<DetalleVentaServicio> servicios;
+
+    @OneToMany(mappedBy = "venta")
     private Set<DetalleVentaPaquete> paquetes;
 
     public Venta() {
+        super();
     }
 
-    public Venta(Long idVenta, Double total, String tipoPago, Date fechaVenta, Paciente paciente, Empleado empleado, Set<DetalleVentaProducto> productos, Set<DetalleVentaServicio> servicios, Set<DetalleVentaPaquete> paquetes) {
-        this.idVenta = idVenta;
+    public Venta( Double total, String tipoPago, Date fechaVenta) {
+        super();
         this.total = total;
         this.tipoPago = tipoPago;
         this.fechaVenta = fechaVenta;
-        this.paciente = paciente;
-        this.empleado = empleado;
-        this.productos = productos;
-        this.servicios = servicios;
-        this.paquetes = paquetes;
     }
 
     public Long getIdVenta() {

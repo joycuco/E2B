@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -30,18 +30,18 @@ public class Consultorio {
     @Column(name = "fecha_apertura")
     private Date fechaApertura;
 
-    @ManyToOne
-    @JoinColumn(name = "consultorio")
-    private Empleado encargado;
+    //@ManyToOne
+    //@JoinColumn(name = "id_empleado")
+    //private Empleado encargado;
 
-    @OneToMany(mappedBy = "id_empleado")
+    @OneToMany(mappedBy = "consultorio")
     private Set<Empleado> empleados;
 
     public Consultorio() {
         super();
     }
 
-    public Consultorio(Long idConsultorio, String direccion, String telefono, String fb, String tw, String estatus, Date fechaApertura, Empleado encargado) {
+    public Consultorio(String direccion, String telefono, String fb, String tw, String estatus, Date fechaApertura) {
         super();
         this.idConsultorio = idConsultorio;
         this.direccion = direccion;
@@ -50,15 +50,6 @@ public class Consultorio {
         this.tw = tw;
         this.estatus = estatus;
         this.fechaApertura = fechaApertura;
-        this.encargado = encargado;
-    }
-
-    public Empleado getEncargado() {
-        return encargado;
-    }
-
-    public void setEncargado(Empleado encargado) {
-        this.encargado = encargado;
     }
 
     public Set<Empleado> getEmpleados() {
@@ -123,13 +114,5 @@ public class Consultorio {
 
     public void setFechaApertura(Date fechaApertura) {
         this.fechaApertura = fechaApertura;
-    }
-
-    public Empleado getEmpleado() {
-        return encargado;
-    }
-
-    public void setEmpleado(Empleado encargado) {
-        this.encargado = encargado;
     }
 }

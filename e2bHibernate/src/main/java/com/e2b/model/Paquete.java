@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 import javax.persistence.*;
 
 import java.util.Set;
@@ -17,8 +17,15 @@ public class Paquete {
 	
 	@Column(name = "precio")
     private Float precio;
-	
-	@OneToMany(mappedBy = "paquete")
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "detalle_paquete",
+            joinColumns = @JoinColumn(name = "id_paquete"),
+            inverseJoinColumns = @JoinColumn(name = "id_producto")
+    )
     private Set<Producto> productos;
 	
 	@OneToMany(mappedBy = "paquete")

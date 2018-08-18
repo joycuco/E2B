@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 
@@ -13,7 +13,7 @@ public class Enfermedad {
     @Column(name = "nombre")
     private String nombre;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "id_antecedentes_familiares")
     private AntecedenteFamiliar antecedenteFamiliar;
 

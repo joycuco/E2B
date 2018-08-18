@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/e2b</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.pool_size">1</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <mapping class="com.e2b.model.AntecedenteFamiliar" />
+        <mapping class="com.e2b.model.Cita" />
+        <mapping class="com.e2b.model.Compra" />
+        <mapping class="com.e2b.model.Consulta" />
+        <mapping class="com.e2b.model.Consultorio" />
+        <mapping class="com.e2b.model.DetalleVentaPaquete" />
+        <mapping class="com.e2b.model.DetalleVentaProducto" />
+        <mapping class="com.e2b.model.DetalleVentaServicio" />
+        <mapping class="com.e2b.model.Dieta" />
+        <mapping class="com.e2b.model.EjemploAlimento" />
+        <mapping class="com.e2b.model.Empleado" />
+        <mapping class="com.e2b.model.Enfermedad" />
+        <mapping class="com.e2b.model.Familiar" />
+        <mapping class="com.e2b.model.Laboratorio" />
+        <mapping class="com.e2b.model.LaboratorioConsulta" />
+        <mapping class="com.e2b.model.Paciente" />
+        <mapping class="com.e2b.model.Paquete" />
+        <mapping class="com.e2b.model.Permiso" />
+        <mapping class="com.e2b.model.PermisoRol" />
+        <mapping class="com.e2b.model.Producto" />
+        <mapping class="com.e2b.model.Receta" />
+        <mapping class="com.e2b.model.Rol" />
+        <mapping class="com.e2b.model.Servicio" />
+        <mapping class="com.e2b.model.Usuario" />
+        <mapping class="com.e2b.model.Venta" />
+    </session-factory>
+</hibernate-configuration>

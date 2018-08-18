@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;

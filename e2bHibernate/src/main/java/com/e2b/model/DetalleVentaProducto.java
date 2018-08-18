@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -25,7 +25,7 @@ public class DetalleVentaProducto implements Serializable {
     @JoinColumn(name = "id_venta")
     private Venta venta;
 
-    @ManyToOne
+    @ManyToOne(optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "id_producto")
     private Producto producto;
 

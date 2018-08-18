@@ -1,8 +1,7 @@
-package com.e2b.consulta;
+package com.e2b.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name = "antecedentes_familiares")
@@ -21,11 +20,13 @@ public class AntecedenteFamiliar implements Serializable {
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
-    @OneToOne(mappedBy = "id_familiar")
+    @OneToOne
+    @JoinColumn(name = "id_familiar")
     private Familiar familiar;
 
 
-    @OneToOne(mappedBy = "id_enfermedad")
+    @OneToOne
+    @JoinColumn(name = "id_enfermedad")
     private Enfermedad enfermedad;
 
     public AntecedenteFamiliar() {

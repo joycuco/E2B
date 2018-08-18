@@ -1,4 +1,4 @@
-package com.e2b.consulta;
+package com.e2b.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -18,7 +18,7 @@ public class Servicio implements Serializable{
     private Float precio;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_servicio")
+	@JoinColumn(name = "id_paquete")
 	private Paquete paquete;
 
     public Servicio() {
