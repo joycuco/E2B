@@ -30,10 +30,11 @@ public class Dieta implements Serializable {
     private Set<EjemploAlimento> ejemplosAlimentos;
 
     public Dieta() {
+        super();
     }
 
-    public Dieta(Long idDieta, String tipo, int kc, int hc, int proteinas, int lipidos, Set<EjemploAlimento> ejemplosAlimentos) {
-        this.idDieta = idDieta;
+    public Dieta(String tipo, int kc, int hc, int proteinas, int lipidos, Set<EjemploAlimento> ejemplosAlimentos) {
+        super();
         this.tipo = tipo;
         this.kc = kc;
         this.hc = hc;

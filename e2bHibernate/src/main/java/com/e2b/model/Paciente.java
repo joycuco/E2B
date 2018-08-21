@@ -63,9 +63,8 @@ public class Paciente implements Serializable {
         super();
     }
 
-    public Paciente(Long idPaciente, String nombre, String telCasa, String telCel, Date fechaIngreso, String enfermedades, String cirugias, String alimentosNoGustan, String alergiaAlimentos, Set<AntecedenteFamiliar> antecedentes, Set<Cita> citas, Usuario usuario, Set<Consulta> consultas) {
+    public Paciente(String nombre, String telCasa, String telCel, Date fechaIngreso, String enfermedades, String cirugias, String alimentosNoGustan, String alergiaAlimentos, Set<AntecedenteFamiliar> antecedentes, Set<Cita> citas, Usuario usuario, Set<Consulta> consultas) {
         super();
-        this.idPaciente = idPaciente;
         this.nombre = nombre;
         this.telCasa = telCasa;
         this.telCel = telCel;

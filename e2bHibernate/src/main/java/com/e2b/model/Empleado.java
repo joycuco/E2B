@@ -60,9 +60,8 @@ public class Empleado implements Serializable {
         super();
     }
 
-    public Empleado(Long idEmpleado, String nombre, String direccion, String telCasa, String telCel, String correo, String puesto, String estatus, Set<Usuario> usuarios) {
+    public Empleado(String nombre, String direccion, String telCasa, String telCel, String correo, String puesto, String estatus, Set<Usuario> usuarios) {
         super();
-        this.idEmpleado = idEmpleado;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telCasa = telCasa;

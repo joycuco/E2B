@@ -43,7 +43,6 @@ public class Consultorio {
 
     public Consultorio(String direccion, String telefono, String fb, String tw, String estatus, Date fechaApertura) {
         super();
-        this.idConsultorio = idConsultorio;
         this.direccion = direccion;
         this.telefono = telefono;
         this.fb = fb;

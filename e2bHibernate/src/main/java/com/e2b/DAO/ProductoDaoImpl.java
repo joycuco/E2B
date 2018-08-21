@@ -1,6 +1,8 @@
 package com.e2b.DAO;
 
 import com.e2b.model.Producto;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
 
@@ -19,21 +21,33 @@ public class ProductoDaoImpl extends E2BSession implements ProductoDao{
 
     public void deleteProductoById(Long idProducto) {
 
+        Producto p = new Producto();
+        p.setIdProducto(idProducto);
+
+        e2BSession.getSession().delete(p);
+        e2BSession.getSession().getTransaction().commit();
+        //e2BSession.getSession().flush();
+
     }
 
     public void updateProducto(Producto producto) {
 
+        e2BSession.getSession().persist(producto);
+        e2BSession.getSession().getTransaction().commit();
+
     }
 
     public List<Producto> findAllProductos() {
-        return null;
+        return e2BSession.getSession().createQuery("from Producto").list();
     }
 
     public Producto findById(Long idProducto) {
-        return null;
+        return (Producto) e2BSession.getSession().get(Producto.class, idProducto);
+
     }
 
     public Producto findByNombre(String name) {
-        return null;
+        Criteria criteria = e2BSession.getSession().createCriteria(Producto.class);
+        return (Producto)criteria.add(Restrictions.eq("nombre", name)).uniqueResult();
     }
 }

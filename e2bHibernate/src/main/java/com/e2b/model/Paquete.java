@@ -32,10 +32,11 @@ public class Paquete {
     private Set<Servicio> servicios;
 
     public Paquete() {
+        super();
     }
 
-    public Paquete(Long idPaquete, String nombre, Float precio, Set<Producto> productos, Set<Servicio> servicios) {
-        this.idPaquete = idPaquete;
+    public Paquete(String nombre, Float precio, Set<Producto> productos, Set<Servicio> servicios) {
+        super();
         this.nombre = nombre;
         this.precio = precio;
         this.productos = productos;

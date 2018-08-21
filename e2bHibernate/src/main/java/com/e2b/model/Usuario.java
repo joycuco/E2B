@@ -37,9 +37,9 @@ public class Usuario implements Serializable{
 		super();
     }
 
-    public Usuario(Long idUsuario, String usuario, String password, PermisoRol permisoRol) {
+    public Usuario(String usuario, String password, PermisoRol permisoRol) {
         super();
-		this.idUsuario = idUsuario;
+
         this.usuario = usuario;
         this.password = password;
         this.permisoRol = permisoRol;

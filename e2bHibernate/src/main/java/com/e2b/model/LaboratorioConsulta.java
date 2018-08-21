@@ -28,9 +28,8 @@ public class LaboratorioConsulta {
 		super();
     }
 
-    public LaboratorioConsulta(Long idLaboratorioConsulta, Laboratorio laboratorio, String resultados, String notas, Consulta consulta) {
+    public LaboratorioConsulta(Laboratorio laboratorio, String resultados, String notas, Consulta consulta) {
         super();
-		this.idLaboratorioConsulta = idLaboratorioConsulta;
         this.laboratorio = laboratorio;
         this.resultados = resultados;
         this.notas = notas;

@@ -27,9 +27,8 @@ public class Compra implements Serializable {
         super();
     }
 
-    public Compra(Long idCompra, Float gasto, String tipoPago, Empleado empleado) {
+    public Compra( Float gasto, String tipoPago, Empleado empleado) {
         super();
-        this.idCompra = idCompra;
         this.gasto = gasto;
         this.tipoPago = tipoPago;
         this.empleado = empleado;

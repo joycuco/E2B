@@ -59,9 +59,8 @@ public class Consulta implements Serializable {
         super();
     }
 
-    public Consulta(Long idConsulta, String complexion, Float peso, Float estatura, Float munieca, Float cadera, Float cintura, Float imc, Float pesoIdeal, Paciente paciente, Dieta dieta, Set<LaboratorioConsulta> laboratoriosConsulta) {
+    public Consulta(String complexion, Float peso, Float estatura, Float munieca, Float cadera, Float cintura, Float imc, Float pesoIdeal, Paciente paciente, Dieta dieta, Set<LaboratorioConsulta> laboratoriosConsulta) {
         super();
-        this.idConsulta = idConsulta;
         this.complexion = complexion;
         this.peso = peso;
         this.estatura = estatura;

@@ -33,9 +33,8 @@ public class EjemploAlimento implements Serializable {
         super();
     }
 
-    public EjemploAlimento(Long idEjemploAlimento, Dieta dieta, Receta receta, String tipo, Time hora, String notas) {
+    public EjemploAlimento(Dieta dieta, Receta receta, String tipo, Time hora, String notas) {
         super();
-        this.idEjemploAlimento = idEjemploAlimento;
         this.dieta = dieta;
         this.receta = receta;
         this.tipo = tipo;

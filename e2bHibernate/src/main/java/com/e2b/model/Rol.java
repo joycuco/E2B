@@ -22,9 +22,8 @@ public class Rol implements Serializable{
 		super();
     }
 
-    public Rol(Long idRol, String nombre, Set<PermisoRol> permisoRol) {
+    public Rol(String nombre, Set<PermisoRol> permisoRol) {
         super();
-        this.idRol = idRol;
         this.nombre = nombre;
         this.permisoRol = permisoRol;
     }

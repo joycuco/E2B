@@ -21,8 +21,8 @@ public class Permiso implements Serializable{
 		super();
     }
 
-    public Permiso(Long idPermiso, String nombre, PermisoRol permisoRol) {
-        this.idPermiso = idPermiso;
+    public Permiso(String nombre, PermisoRol permisoRol) {
+        super();
         this.nombre = nombre;
         this.permisoRol = permisoRol;
     }

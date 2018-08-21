@@ -23,9 +23,8 @@ public class Familiar implements Serializable{
 		super();
     }
 
-    public Familiar(Long idFamiliar, String parentesco) {
+    public Familiar(String parentesco) {
 		super();
-        this.idFamiliar = idFamiliar;
         this.parentesco = parentesco;
     }
 

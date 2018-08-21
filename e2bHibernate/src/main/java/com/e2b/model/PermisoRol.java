@@ -24,9 +24,8 @@ public class PermisoRol implements Serializable {
         super();
     }
 
-    public PermisoRol(Long idPermisoRol, Set<Permiso> permisos, Rol rol) {
+    public PermisoRol(Set<Permiso> permisos, Rol rol) {
         super();
-        this.idPermisoRol = idPermisoRol;
         this.permisos = permisos;
         this.rol = rol;
     }

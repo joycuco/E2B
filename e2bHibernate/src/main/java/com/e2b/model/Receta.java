@@ -36,9 +36,8 @@ public class Receta implements Serializable{
 		super();
     }
 
-    public Receta(Long idReceta, String nombre, String ingredientes, String infoNutrimental, float verduras, float cernes, float aceites, float semillas) {
+    public Receta(String nombre, String ingredientes, String infoNutrimental, float verduras, float cernes, float aceites, float semillas) {
         super();
-		this.idReceta = idReceta;
         this.nombre = nombre;
         this.ingredientes = ingredientes;
         this.infoNutrimental = infoNutrimental;

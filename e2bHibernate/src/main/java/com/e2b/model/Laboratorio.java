@@ -22,9 +22,8 @@ public class Laboratorio implements Serializable{
 		super();
     }
 
-    public Laboratorio(Long idLaboratorio, String nombre, String detalle) {
+    public Laboratorio( String nombre, String detalle) {
 		super();
-        this.idLaboratorio = idLaboratorio;
         this.nombre = nombre;
         this.detalle = detalle;
     }

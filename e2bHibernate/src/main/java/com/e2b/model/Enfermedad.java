@@ -21,9 +21,8 @@ public class Enfermedad {
         super();
     }
 
-    public Enfermedad(Long idEnfermedad, String nombre, AntecedenteFamiliar antecedenteFamiliar) {
+    public Enfermedad(String nombre, AntecedenteFamiliar antecedenteFamiliar) {
         super();
-        this.idEnfermedad = idEnfermedad;
         this.nombre = nombre;
         this.antecedenteFamiliar = antecedenteFamiliar;
     }

@@ -33,9 +33,8 @@ public class AntecedenteFamiliar implements Serializable {
         super();
     }
 
-    public AntecedenteFamiliar(Long idAntecedenteFamiliar, String notas, Paciente paciente, Familiar familiar, Enfermedad enfermedad) {
+    public AntecedenteFamiliar(String notas, Paciente paciente, Familiar familiar, Enfermedad enfermedad) {
         super();
-        this.idAntecedenteFamiliar = idAntecedenteFamiliar;
         this.notas = notas;
         this.paciente = paciente;
         this.familiar = familiar;

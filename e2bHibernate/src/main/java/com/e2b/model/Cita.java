@@ -27,9 +27,8 @@ public class Cita implements Serializable {
         super();
     }
 
-    public Cita(Long idCita, Paciente paciente, Date fechaCita, Empleado empleado) {
+    public Cita(Paciente paciente, Date fechaCita, Empleado empleado) {
         super();
-        this.idCita = idCita;
         this.paciente = paciente;
         this.fechaCita = fechaCita;
         this.empleado = empleado;

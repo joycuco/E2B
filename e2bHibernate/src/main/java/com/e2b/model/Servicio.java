@@ -25,9 +25,8 @@ public class Servicio implements Serializable{
 		super();
     }
 
-    public Servicio(Long idServicio, String nombre, Float precio) {
+    public Servicio( String nombre, Float precio) {
 		super();
-        this.idServicio = idServicio;
         this.nombre = nombre;
         this.precio = precio;
     }

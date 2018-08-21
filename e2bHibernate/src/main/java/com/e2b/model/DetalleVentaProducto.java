@@ -33,9 +33,8 @@ public class DetalleVentaProducto implements Serializable {
         super();
     }
 
-    public DetalleVentaProducto(Long idDetalleVentaProducto, Float descuento, int cantidad, Float total, Venta venta, Producto producto) {
+    public DetalleVentaProducto(Float descuento, int cantidad, Float total, Venta venta, Producto producto) {
         super();
-        this.idDetalleVentaProducto = idDetalleVentaProducto;
         this.descuento = descuento;
         this.cantidad = cantidad;
         this.total = total;
