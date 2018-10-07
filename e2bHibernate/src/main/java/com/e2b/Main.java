@@ -45,7 +45,7 @@ class Main {
         System.out.println(p.getNombre());*/
 
         ProductoDaoImpl productoDao= new ProductoDaoImpl();
-        productoDao.deleteProductoById(5L);
+        productoDao.deleteProductoById(4L);
 
 
 
