@@ -39,7 +39,7 @@ public class RecetaController {
 		
 		if (_recetaService.findByNombre(receta.getNombre())!=null) {
 			
-			return new ResponseEntity(new CustomMessageType("Ya existe el receta "+receta.getNombre()+" con el mismo nombre"), HttpStatus.CONFLICT);
+			return new ResponseEntity(new CustomMessageType("Ya existe la receta "+receta.getNombre()+" con el mismo nombre"), HttpStatus.CONFLICT);
 		
 		}
 		_recetaService.saveReceta(receta);
