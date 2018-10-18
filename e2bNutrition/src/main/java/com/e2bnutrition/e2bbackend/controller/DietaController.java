@@ -1,6 +1,8 @@
 package com.e2bnutrition.e2bbackend.controller;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.e2bnutrition.e2bbackend.model.Dieta;
+import com.e2bnutrition.e2bbackend.model.EjemploAlimento;
+import com.e2bnutrition.e2bbackend.model.Receta;
 import com.e2bnutrition.e2bbackend.service.DietaService;
+import com.e2bnutrition.e2bbackend.service.RecetaService;
 import com.e2bnutrition.e2bbackend.utils.CustomMessageType;
 import com.e2bnutrition.e2bbackend.utils.ValidateData;
 
@@ -26,6 +31,9 @@ public class DietaController {
 	
 	@Autowired
 	DietaService _dietaService;
+	
+	@Autowired 
+	RecetaService _recetaService;
 	
 	//POST
 	@RequestMapping(value = "/dietas", method = RequestMethod.POST, headers = "Accept=application/json")
@@ -157,6 +165,113 @@ public class DietaController {
 		
 		return new ResponseEntity<Dieta>(dieta,HttpStatus.OK);
 	}
+	
+	
+	
+	
+	//POST el más perro!
+	
+	@RequestMapping(value="dietas/recetas",  method = RequestMethod.PATCH, headers ="Accept=application/json")
+	public ResponseEntity<?> assignEjemplosRecetas(@RequestBody Dieta dieta, UriComponentsBuilder uriComponentsBuilder){
+		
+		//return new ResponseEntity<Dieta>(dieta, HttpStatus.OK);
+		
+		
+		if (dieta.getIdDieta()==null) {
+			
+			return new ResponseEntity(new CustomMessageType("We need at least id_Dieta, id_receta and tipo alimento"), HttpStatus.NO_CONTENT);
+			
+		}
+		
+		
+		Dieta dietaSaved= _dietaService.findById(dieta.getIdDieta());
+		
+		if (dietaSaved==null) {				
+			return new ResponseEntity(new CustomMessageType("We need at least id_Dieta, id_receta and tipo alimento"), HttpStatus.NO_CONTENT);	
+		}
+		
+		if (dieta.getEjemplosAlimentos().size()==0) {
+			return new ResponseEntity(new CustomMessageType("We need at least id_Dieta, id_receta and tipo alimento"), HttpStatus.NO_CONTENT);	
+			
+		}
+		else {
+			
+			Iterator<EjemploAlimento> i = dieta.getEjemplosAlimentos().iterator();
+			while(i.hasNext()) {
+				
+				EjemploAlimento ejemploAlimento = i.next();
+
+				if ((ejemploAlimento.getReceta().getIdReceta()==null)||(ejemploAlimento.getTipo()==null)) {
+					
+					return new ResponseEntity(new CustomMessageType("We need at least id_dieta, id_receta and tipo_alimento"), HttpStatus.NO_CONTENT);	
+					
+				}else {
+					EjemploAlimento eaAux = _recetaService.findRecetaByIdAndTipo(
+																					ejemploAlimento.getReceta().getIdReceta(), 
+																					ejemploAlimento.getTipo());
+
+					
+					if(eaAux!=null) {
+						
+						return new ResponseEntity(new CustomMessageType("The idReceta "+
+																		ejemploAlimento.getReceta().getIdReceta()+
+																		" with Tipo_alimento "+
+																		ejemploAlimento.getTipo()+"already exists"), 
+																		HttpStatus.NO_CONTENT);	
+						
+					}
+					
+					Receta receta = _recetaService.findById(ejemploAlimento.getReceta().getIdReceta());
+				
+					if (receta==null) {
+						
+						return new ResponseEntity(new CustomMessageType("Id Receta not found"), HttpStatus.NO_CONTENT);	
+						
+					}
+					ejemploAlimento.setReceta(receta);
+					ejemploAlimento.setDieta(dietaSaved);
+					
+					if (eaAux==null) {
+						dietaSaved.getEjemplosAlimentos().add(ejemploAlimento);							
+					}
+					//hasta aquí me quedé 11-10-2018
+					else {
+						LinkedList<EjemploAlimento> ejemplosAlimentos = new LinkedList<>();
+						ejemplosAlimentos.addAll(dietaSaved.getEjemplosAlimentos());
+						
+						for(int j = 0;j<ejemplosAlimentos.size();j++) {
+							EjemploAlimento ejemploAlimento2 = ejemplosAlimentos.get(j);
+							
+							if (ejemploAlimento.getDieta().getIdDieta() == ejemploAlimento2.getDieta().getIdDieta()
+									&& ejemploAlimento.getReceta().getIdReceta() == ejemploAlimento2.getReceta().getIdReceta()) {
+								
+								ejemploAlimento2.setTipo(ejemploAlimento.getTipo());
+								ejemplosAlimentos.set(j, ejemploAlimento2);									
+							}
+							
+							else {
+								ejemplosAlimentos.set(j, ejemploAlimento2);
+							}
+						}
+						
+						dietaSaved.getEjemplosAlimentos().clear();
+						dietaSaved.getEjemplosAlimentos().addAll(ejemplosAlimentos);
+						
+					}
+				}
+				
+			}
+			
+		}
+		
+		_dietaService.updateDieta(dietaSaved);
+		return new ResponseEntity<Dieta>(dietaSaved, HttpStatus.OK);
+	}
+	
+	
+	
+	
+	
 	
 	
 }

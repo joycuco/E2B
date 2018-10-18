@@ -1,16 +1,17 @@
-package com.e2b.model;
+package com.e2bnutrition.e2bbackend.model;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "enfermedad")
-public class Enfermedad implements Serializable{
+@Table(name = "laboratorio")
+public class Laboratorio implements Serializable{
 
 	@Id
-	@Column(name = "id_enfermedad")
+	@Column(name = "id_laboratorio")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEnfermedad;
+    private Long idLaboratorio;
 	
 	@Column(name = "nombre")
     private String nombre;
@@ -18,22 +19,22 @@ public class Enfermedad implements Serializable{
 	@Column(name = "detalle")
     private String detalle;
 
-    public Enfermedad() {
+    public Laboratorio() {
 		super();
     }
 
-    public Enfermedad( String nombre, String detalle) {
+    public Laboratorio( String nombre, String detalle) {
 		super();
         this.nombre = nombre;
         this.detalle = detalle;
     }
 
-    public Long getIdEnfermedad() {
-        return idEnfermedad;
+    public Long getIdLaboratorio() {
+        return idLaboratorio;
     }
 
-    public void setIdEnfermedad(Long idEnfermedad) {
-        this.idEnfermedad = idEnfermedad;
+    public void setIdLaboratorio(Long idLaboratorio) {
+        this.idLaboratorio = idLaboratorio;
     }
 
     public String getNombre() {

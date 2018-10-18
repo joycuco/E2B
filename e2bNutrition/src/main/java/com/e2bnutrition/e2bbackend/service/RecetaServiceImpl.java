@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.e2bnutrition.e2bbackend.dao.RecetaDao;
+import com.e2bnutrition.e2bbackend.model.EjemploAlimento;
 import com.e2bnutrition.e2bbackend.model.Receta;
 
 @Service("recetaService")
@@ -54,6 +55,12 @@ public class RecetaServiceImpl implements RecetaService{
 	public Receta findByNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return _recetaDao.findByNombre(nombre);
+	}
+
+	@Override
+	public EjemploAlimento findRecetaByIdAndTipo(Long idReceta, String tipoAlimento) {
+		// TODO Auto-generated method stub
+		return _recetaDao.findRecetaByIdAndTipo(idReceta, tipoAlimento);
 	}
 
 }

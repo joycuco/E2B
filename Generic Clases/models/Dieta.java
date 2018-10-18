@@ -26,22 +26,21 @@ public class Dieta implements Serializable {
     @Column(name = "lipidos")
     private int lipidos;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name="id_dieta")
+    @OneToMany(mappedBy = "dieta")
     private Set<EjemploAlimento> ejemplosAlimentos;
 
     public Dieta() {
         super();
     }
 
-    public Dieta(String tipo, int kc, int hc, int proteinas, int lipidos) {
+    public Dieta(String tipo, int kc, int hc, int proteinas, int lipidos, Set<EjemploAlimento> ejemplosAlimentos) {
         super();
         this.tipo = tipo;
         this.kc = kc;
         this.hc = hc;
         this.proteinas = proteinas;
         this.lipidos = lipidos;
-        //this.ejemplosAlimentos = ejemplosAlimentos;
+        this.ejemplosAlimentos = ejemplosAlimentos;
     }
 
     public Long getIdDieta() {

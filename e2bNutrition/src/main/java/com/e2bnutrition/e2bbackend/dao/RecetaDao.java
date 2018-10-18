@@ -3,6 +3,7 @@ package com.e2bnutrition.e2bbackend.dao;
 
 import java.util.List;
 
+import com.e2bnutrition.e2bbackend.model.EjemploAlimento;
 import com.e2bnutrition.e2bbackend.model.Receta;
 
 public interface RecetaDao {
@@ -14,4 +15,8 @@ public interface RecetaDao {
     List<Receta> findAllRecetas();
     Receta findById(Long idReceta);
     Receta findByNombre(String nombre);
+    EjemploAlimento findRecetaByIdAndTipo(Long idReceta, String tipoAlimento);
+    
+	//TeacherSocialMedia findSocialMediaByIdTeacherAndIdSocialMedia(Long idTeacher, Long idSocialMedia);
+
 }

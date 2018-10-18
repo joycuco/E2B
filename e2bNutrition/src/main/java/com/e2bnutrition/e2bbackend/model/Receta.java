@@ -2,8 +2,12 @@ package com.e2bnutrition.e2bbackend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -53,8 +57,14 @@ public class Receta implements Serializable{
 	
 	@Column(name = "leche")
     private float leche;
+	
+	
+	@OneToMany
+	@JoinColumn(name="id_receta")
+    @JsonIgnore
+	private Set<EjemploAlimento> ejemploAlimento;
 
-    public Receta() {
+	public Receta() {
 		super();
     }
 
@@ -216,4 +226,15 @@ public class Receta implements Serializable{
     public void setSemillas(float semillas) {
         this.semillas = semillas;
     }
+    
+    public Set<EjemploAlimento> getEjemploAlimento() {
+		return ejemploAlimento;
+	}
+
+
+
+	public void setEjemplosAlimentos(Set<EjemploAlimento> ejemploAlimento) {
+		this.ejemploAlimento = ejemploAlimento;
+	}
+
 }

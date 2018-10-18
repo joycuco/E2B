@@ -2,7 +2,7 @@ package com.e2bnutrition.e2bbackend.dao;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
-
+import com.e2bnutrition.e2bbackend.model.EjemploAlimento;
 import com.e2bnutrition.e2bbackend.model.Receta;
 
 import java.util.List;
@@ -42,4 +42,30 @@ public class RecetaDaoImpl extends AbstractSession implements RecetaDao{
         return (Receta) getSession().createQuery(
                 "from Receta where nombre = :nombre").setParameter("nombre",name).uniqueResult();
     }
+	@Override
+	public EjemploAlimento findRecetaByIdAndTipo(Long idReceta, String tipoAlimento) {
+		// TODO Auto-generated method stub
+		List<Object[]> objects= getSession().createQuery(
+				"from EjemploAlimento ea join ea.receta res "
+				+ "where res.idReceta = :idReceta "
+				+ "AND ea.tipo = :tipoAlimento").
+				setParameter("idReceta", idReceta).
+				setParameter("tipoAlimento", tipoAlimento).list();
+		
+		if(objects.size()>0) {
+			
+			for (Object[] objects2 : objects) {
+				for (Object object : objects2) {
+					if (object instanceof EjemploAlimento) {
+						return (EjemploAlimento) object;
+					}
+					
+				}
+				
+			}
+			
+		}
+		
+		return null;
+	}
 }

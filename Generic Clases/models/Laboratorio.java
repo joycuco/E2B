@@ -1,4 +1,4 @@
-package com.e2b.model;
+package com.e2bnutrition.e2bbackend.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
